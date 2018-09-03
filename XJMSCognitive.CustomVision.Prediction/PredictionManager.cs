@@ -15,8 +15,6 @@ namespace XJMSCognitive.CustomVision.Prediction
         public string Uri { get; set; }
         public string PredictionKey { get; set; }
         public string IterationId { get; set; }
-        
-        
     }
 
     public class UrlPredictionManager:PredictionManager
@@ -36,6 +34,8 @@ namespace XJMSCognitive.CustomVision.Prediction
                 return JsonConvert.DeserializeObject<Response>(await httpResponse.Content.ReadAsStringAsync());
             }
         }
+
+
     }
 
     public class ImagePredictionManager : PredictionManager

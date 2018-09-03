@@ -62,7 +62,7 @@ namespace WelcomeNewer.Wpf
 
         }
 
-        private async void btnImg1Ana_Click(object sender, RoutedEventArgs e)
+        private void btnImg1Ana_Click(object sender, RoutedEventArgs e)
         {
             /*OpenFileDialog openFileDialog = new OpenFileDialog();
              openFileDialog.Title = "选择文件";
@@ -83,6 +83,7 @@ namespace WelcomeNewer.Wpf
             openFileDialog.Multiselect = false;
             openFileDialog.Filter = "jpg|*.jpg|jpeg|*.jpeg|png|*.png";
             openFileDialog.ShowDialog();
+            
         }
 
         private async void _OnImg1FileSelected(object sender, CancelEventArgs e)
@@ -98,7 +99,7 @@ namespace WelcomeNewer.Wpf
             bitmapImage.EndInit();
             
             img1.Source = bitmapImage;
-            
+            labelImg1.Content = "Analysing...";
             /*
             var bitmap = new BitmapImage();
             var stream = File.OpenRead(fileName);
@@ -123,7 +124,7 @@ namespace WelcomeNewer.Wpf
                 result = await imagePredictionManager.Infer(fileStream);
             }
             //labelImg1.Content = result.Predictions[0].TagName;
-            labelImg1.Content = GetPolluteIndex(result);
+            labelImg1.Content = GetPolluteDetail(result);
 
         }
 
@@ -141,6 +142,18 @@ namespace WelcomeNewer.Wpf
                 finalIndex = finalIndex + level * prediction.Probability;
             }
             return finalIndex;
+        }
+
+        public string GetPolluteDetail(Response response)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(var prediction in response.Predictions)
+            {
+                sb.AppendLine(prediction.TagName+": "+prediction.Probability);
+            }
+
+            sb.AppendLine("最终评定：" + GetPolluteIndex(response));
+            return sb.ToString();
         }
     }
 }

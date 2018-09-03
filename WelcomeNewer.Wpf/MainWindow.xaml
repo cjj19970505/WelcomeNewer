@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="578" Width="945">
     <Grid>
-        <Image x:Name="img1" HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="738" Stretch="UniformToFill"/>
+        <Image x:Name="img1" HorizontalAlignment="Left" Height="448" Margin="10,10,0,0" VerticalAlignment="Top" Width="738"/>
         <TextBox x:Name="tbImg1Url" HorizontalAlignment="Left" Height="24" Margin="82,463,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="542"/>
         <Button x:Name="btnImg1Ana" Content="分析" HorizontalAlignment="Left" Margin="672,468,0,0" VerticalAlignment="Top" Width="76" Click="btnImg1Ana_Click"/>
-        <Label x:Name="labelImg1" Content="污染等级：1" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Height="166" Width="184"/>
+        <Label x:Name="labelImg1" Content="污染等级：1" HorizontalAlignment="Left" Margin="753,10,0,0" VerticalAlignment="Top" Height="161" Width="177"/>
 
     </Grid>
 </Window>
